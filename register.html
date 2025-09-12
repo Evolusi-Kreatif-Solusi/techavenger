@@ -38,31 +38,61 @@
     <main class="flex-1 flex items-center justify-center pt-32 pb-16">
         <div class="w-full max-w-lg card p-8">
             <h1 class="text-3xl font-bold text-center mb-6 text-gray-900">Formulir Pendaftaran</h1>
-            <form id="registration-form" class="space-y-6">
+            <form action="register.php" method="post" enctype="multipart/form-data" class="space-y-6">
                 <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
-                    <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2" required>
+                    <label for="nama" class="block text-sm font-medium text-gray-700">Nama Lengkap*</label>
+                    <input type="text" id="nama" name="nama" maxlength="100" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
+                </div>
+                <div>
+                    <label for="nomor_wa" class="block text-sm font-medium text-gray-700">Nomor WA*</label>
+                    <input type="text" id="nomor_wa" name="nomor_wa" maxlength="20" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
                 </div>
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2" required>
+                    <input type="email" id="email" name="email" maxlength="100" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
                 </div>
                 <div>
-                    <label for="phone" class="block text-sm font-medium text-gray-700">Nomor Telepon</label>
-                    <input type="tel" id="phone" name="phone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2" required>
+                    <label for="domisili" class="block text-sm font-medium text-gray-700">Domisili</label>
+                    <input type="text" id="domisili" name="domisili" maxlength="100" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
                 </div>
                 <div>
-                    <label for="bootcamp-choice" class="block text-sm font-medium text-gray-700">Pilihan Program</label>
-                    <select id="bootcamp-choice" name="bootcamp-choice" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2" required>
-                        <option value="">Pilih Program</option>
-                        <option value="full-stack">Full-Stack Web Development (Paid)</option>
-                        <option value="qa">Software Quality Assurance (Paid)</option>
-                        <option value="enterprise">Enterprise Software Mastery (Paid)</option>
-                        <option value="free-bootcamp">Free Bootcamp</option>
-                        <option value="outsystem">Outsystem (Free)</option>
-                        <option value="temenos">Temenos 24 (Free)</option>
-                        <option value="softskill-class">Soft Skill Class</option>
+                    <label for="profesi" class="block text-sm font-medium text-gray-700">Profesi</label>
+                    <input type="text" id="profesi" name="profesi" maxlength="100" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
+                </div>
+                <div>
+                    <label for="kelas_yang_dipilih" class="block text-sm font-medium text-gray-700">Kelas yang Dipilih*</label>
+                    <select id="kelas_yang_dipilih" name="kelas_yang_dipilih" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
+                        <option value="paid">Paid</option>
+                        <option value="free">Free</option>
+                        <option value="softclass">Softclass</option>
                     </select>
+                </div>
+                <div>
+                    <label for="file_upload" class="block text-sm font-medium text-gray-700">Upload File</label>
+                    <input type="file" id="file_upload" name="file_upload" accept=".pdf,.jpg,.jpeg,.png" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
+                </div>
+                <div>
+                    <label for="sumber_informasi" class="block text-sm font-medium text-gray-700">Sumber Informasi*</label>
+                    <select id="sumber_informasi" name="sumber_informasi" required onchange="toggleLainnya(this)" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
+                        <option value="relasi">Relasi</option>
+                        <option value="instagram">Instagram</option>
+                        <option value="tiktok">Tiktok</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="linkedin">LinkedIn</option>
+                        <option value="WA Group">WA Group</option>
+                        <option value="Website">Website</option>
+                        <option value="Undangan Email">Undangan Email</option>
+                        <option value="Telegroup">Telegroup</option>
+                        <option value="lainnya">Lainnya</option>
+                    </select>
+                </div>
+                <div id="input_lainnya_container" style="display:none;">
+                    <label for="input_lainnya" class="block text-sm font-medium text-gray-700">Sebutkan sumber lainnya</label>
+                    <input type="text" id="input_lainnya" name="input_lainnya" maxlength="255" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
+                </div>
+                <div>
+                    <label for="akun_pemberi_informasi" class="block text-sm font-medium text-gray-700">Akun Pemberi Informasi</label>
+                    <input type="text" id="akun_pemberi_informasi" name="akun_pemberi_informasi" maxlength="100" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
                 </div>
                 <div>
                     <button type="submit" class="w-full btn-primary py-3 rounded-md">Daftar Sekarang</button>
@@ -73,7 +103,8 @@
     </main>
 
     <!-- Modal Sukses -->
-    <div id="success-modal" class="modal-overlay">
+    <!-- Modal Sukses (opsional, bisa diaktifkan jika ingin notifikasi sukses) -->
+    <div id="success-modal" class="modal-overlay" style="display:none;">
         <div class="modal-content relative">
             <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Pendaftaran Berhasil!</h3>
             <p class="text-lg md:text-xl text-gray-700 mb-6">Terima kasih, data Anda sudah kami terima. Silakan cek email Anda untuk konfirmasi pendaftaran.</p>
@@ -94,6 +125,17 @@
     </footer>
 
     <!-- Custom JS -->
-    <script src="js/main.js"></script>
+        <script>
+        function toggleLainnya(select) {
+            var container = document.getElementById('input_lainnya_container');
+            if (select.value === 'lainnya') {
+                container.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+                document.getElementById('input_lainnya').value = '';
+            }
+        }
+        </script>
+        <script src="js/main.js"></script>
 </body>
 </html>
