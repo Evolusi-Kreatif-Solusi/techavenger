@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Bootcamp Gratis</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F3F4F6;
+            color: #1F2937;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1F2937;
+            margin-bottom: 4rem;
+        }
+        .btn-primary {
+            background-image: linear-gradient(45deg, #A855F7, #7E22CE);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            transition: transform 0.2s ease-in-out;
+            border-radius: 9999px;
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+        }
+        .card {
+            background-color: #ffffff;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+        }
+        .icon {
+            color: #7E22CE;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .text-gradient {
+            background-image: linear-gradient(45deg, #7E22CE, #FFC107);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-background {
+            background-image: linear-gradient(135deg, #F3E8FF, #FFFBEB);
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .syllabus-item {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .syllabus-item:hover {
+            background-color: #f1f5f9;
+        }
+        .syllabus-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        .syllabus-content.active {
+            max-height: 500px;
+        }
+        /* FAQ Styles */
+        .faq-item {
+            border-bottom: 1px solid #E5E7EB;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-question {
+            cursor: pointer;
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        .faq-answer.active {
+            max-height: 200px;
+        }
+        .faq-question i {
+            transition: transform 0.3s ease-in-out;
+        }
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-80 backdrop-blur-md shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center space-x-2 text-xl font-bold text-gray-900">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#FFC107]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L12 21M12 21L14.25 17M12 21V3" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3C8.134 3 5 6.134 5 10s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7z" />
+            </svg>
+            <span class="text-gradient">PT Edukasi Tujuh Belas</span>
+        </a>
+        <div class="hidden md:flex space-x-8">
+            <a href="paid.html" class="text-gray-600 hover:text-purple-700 transition-colors">Paid</a>
+            <a href="free.html" class="text-gray-600 hover:text-purple-700 transition-colors">Free</a>
+            <a href="softclass.html" class="text-gray-600 hover:text-purple-700 transition-colors">Softclass</a>
+        </div>
+        <a href="#daftar" class="btn-primary">Daftar Sekarang</a>
+    </div>
+</nav>
+
+<!-- Hero Section with Form -->
+<header id="daftar" class="relative w-full min-h-screen flex items-center justify-center overflow-hidden hero-background py-16">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="text-center md:text-left">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
+                Mulai Karier IT Anda Secara Gratis!
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-8">
+                Pelajari dasar-dasar industri IT dengan kurikulum yang relevan tanpa biaya. Program ini adalah langkah pertama Anda menuju karier digital yang sukses.
+            </p>
+        </div>
+        <div class="w-full card p-8">
+            <h2 class="text-2xl font-bold text-center mb-6 text-gray-900">Daftar Sekarang</h2>
+            <form id="registration-form" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
+                    <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2" required>
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700">Nomor Telepon</label>
+                    <input type="tel" id="phone" name="phone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2" required>
+                </div>
+                <input type="hidden" id="bootcamp-choice" name="bootcamp-choice" value="free-bootcamp">
+                <div>
+                    <button type="submit" class="w-full btn-primary py-3 rounded-md">Daftar Sekarang</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</header>
+
+<!-- Instruktur Section -->
+<section id="instruktur" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <h2 class="section-title">Kenali Instruktur Terbaik Kami</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="card flex flex-col items-center text-center">
+                <img src="https://placehold.co/150x150/7E22CE/ffffff?text=Instruktur+1" alt="Instruktur 1" class="rounded-full mb-4 w-32 h-32 object-cover">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Budi Santoso</h3>
+                <p class="text-gray-600 text-sm">Praktisi Outsystem dengan 10+ tahun pengalaman.</p>
+            </div>
+            <div class="card flex flex-col items-center text-center">
+                <img src="https://placehold.co/150x150/7E22CE/ffffff?text=Instruktur+2" alt="Instruktur 2" class="rounded-full mb-4 w-32 h-32 object-cover">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Siti Rahayu</h3>
+                <p class="text-gray-600 text-sm">QA Engineer Senior yang ahli dalam pengujian otomatis.</p>
+            </div>
+            <div class="card flex flex-col items-center text-center">
+                <img src="https://placehold.co/150x150/7E22CE/ffffff?text=Instruktur+3" alt="Instruktur 3" class="rounded-full mb-4 w-32 h-32 object-cover">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Andi Wijaya</h3>
+                <p class="text-gray-600 text-sm">Konsultan Temenos bersertifikasi internasional.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Program Paid Bootcamp -->
+<section id="program" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="section-title">Pilihan Program Bootcamp Gratis</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div class="card flex flex-col items-center text-center">
+                <i class="fa-solid fa-database icon mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Outsystem</h3>
+                <p class="text-gray-600 mb-4">Pelajari dasar-dasar pengembangan low-code dengan platform terkemuka Outsystem dan bangun aplikasi pertama Anda.</p>
+                <a href="#daftar" class="mt-auto btn-primary inline-block">Daftar Sekarang</a>
+            </div>
+            <div class="card flex flex-col items-center text-center">
+                <i class="fa-solid fa-code-fork icon mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Temenos 24</h3>
+                <p class="text-gray-600 mb-4">Kuasai dasar-dasar platform perbankan Temenos 24, salah satu solusi software enterprise paling canggih di dunia.</p>
+                <a href="#daftar" class="mt-auto btn-primary inline-block">Daftar Sekarang</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Kurikulum Section -->
+<section id="kurikulum" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <h2 class="section-title">Kurikulum Inti Bootcamp</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="card p-6">
+                <h3 class="text-2xl font-bold mb-4 text-purple-700">Outsystem</h3>
+                <div class="syllabus-item border-b border-gray-200 py-4" data-target="outsystem">
+                    <div class="flex justify-between items-center">
+                        <span class="font-semibold text-lg">Modul 1: Pengenalan Outsystem</span>
+                        <i class="fas fa-chevron-down text-purple-600 transform transition-transform duration-300"></i>
+                    </div>
+                    <div class="syllabus-content mt-4">
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li>Pertemuan 1: Apa itu Low-Code dan Pengenalan Outsystem</li>
+                            <li>Pertemuan 2: UI/UX di Outsystem</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="syllabus-item border-b border-gray-200 py-4" data-target="outsystem">
+                    <div class="flex justify-between items-center">
+                        <span class="font-semibold text-lg">Modul 2: Membangun Aplikasi</span>
+                        <i class="fas fa-chevron-down text-purple-600 transform transition-transform duration-300"></i>
+                    </div>
+                    <div class="syllabus-content mt-4">
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li>Pertemuan 3-4: Membangun Aplikasi Sederhana</li>
+                            <li>Pertemuan 5: Pengenalan Data dan Integrasi</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-2xl font-bold mb-4 text-purple-700">Temenos 24</h3>
+                <div class="syllabus-item border-b border-gray-200 py-4" data-target="temenos">
+                    <div class="flex justify-between items-center">
+                        <span class="font-semibold text-lg">Modul 1: Dasar-dasar Temenos</span>
+                        <i class="fas fa-chevron-down text-purple-600 transform transition-transform duration-300"></i>
+                    </div>
+                    <div class="syllabus-content mt-4">
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li>Pertemuan 1: Pengenalan Platform Temenos 24</li>
+                            <li>Pertemuan 2: Navigasi dan Konsep Dasar</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="syllabus-item border-b border-gray-200 py-4" data-target="temenos">
+                    <div class="flex justify-between items-center">
+                        <span class="font-semibold text-lg">Modul 2: Praktek Sederhana</span>
+                        <i class="fas fa-chevron-down text-purple-600 transform transition-transform duration-300"></i>
+                    </div>
+                    <div class="syllabus-content mt-4">
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li>Pertemuan 3-4: Membangun Modul Sederhana</li>
+                            <li>Pertemuan 5: Studi Kasus Penggunaan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section (Updated for Free) -->
+<section id="harga" class="py-20 bg-white">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="section-title">100% Gratis!</h2>
+        <div class="card max-w-md mx-auto p-8 border-2 border-green-500">
+            <h3 class="text-2xl font-bold mb-4 text-green-600">Free Bootcamp</h3>
+            <p class="text-5xl font-extrabold mb-2 text-gray-900">Rp 0</p>
+            <p class="text-gray-500 mb-6">Tanpa biaya tersembunyi</p>
+            <ul class="text-gray-700 text-left space-y-3 mb-6">
+                <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Akses semua materi online</li>
+                <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Sesi Live bersama mentor</li>
+                <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Lulusan dapat sertifikat (syarat & ketentuan berlaku)</li>
+            </ul>
+            <a href="#daftar" class="w-full btn-primary inline-block">Daftar Sekarang</a>
+        </div>
+    </div>
+</section>
+
+<!-- Testimoni Section -->
+<section id="testimoni" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <h2 class="section-title">Apa Kata Mereka?</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="card">
+                <p class="text-gray-600 italic">"Materi sangat lengkap dan mentornya sangat membantu. Saya langsung diterima kerja setelah lulus!"</p>
+                <div class="mt-4 flex items-center">
+                    <img src="https://placehold.co/48x48/7E22CE/ffffff?text=NP" alt="Profil Pengguna" class="w-12 h-12 rounded-full object-cover">
+                    <div class="ml-4">
+                        <p class="font-semibold text-gray-900">Nama Peserta</p>
+                        <p class="text-sm text-gray-500">Jabatan di Perusahaan</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <p class="text-gray-600 italic">"Lingkungan belajarnya suportif. Saya yang tadinya tidak punya dasar bisa mengikuti dengan mudah."</p>
+                <div class="mt-4 flex items-center">
+                    <img src="https://placehold.co/48x48/7E22CE/ffffff?text=NP" alt="Profil Pengguna" class="w-12 h-12 rounded-full object-cover">
+                    <div class="ml-4">
+                        <p class="font-semibold text-gray-900">Nama Peserta</p>
+                        <p class="text-sm text-gray-500">Jabatan di Perusahaan</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <p class="text-gray-600 italic">"Kurikulumnya sangat relevan dengan kebutuhan industri. Saya jadi lebih percaya diri untuk melamar pekerjaan."</p>
+                <div class="mt-4 flex items-center">
+                    <img src="https://placehold.co/48x48/7E22CE/ffffff?text=NP" alt="Profil Pengguna" class="w-12 h-12 rounded-full object-cover">
+                    <div class="ml-4">
+                        <p class="font-semibold text-gray-900">Nama Peserta</p>
+                        <p class="text-sm text-gray-500">Jabatan di Perusahaan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Video Project Section -->
+<section id="video-project" class="py-20 bg-white">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="section-title">Proyek Akhir Karya Peserta</h2>
+        <p class="text-gray-600 mb-8">Lihat langsung hasil nyata dari proyek yang dikerjakan oleh para lulusan kami.</p>
+        <div class="aspect-w-16 aspect-h-9 max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg">
+            <iframe class="w-full" height="400" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Proyek Lulusan" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- Why Section -->
+<section class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <h2 class="section-title">Kenapa Memilih Bootcamp Ini?</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="card text-center">
+                <div class="icon">
+                    <i class="fa-solid fa-graduation-cap mx-auto"></i>
+                </div>
+                <h3 class="font-semibold text-gray-900 mb-2">Kurikulum Terkini</h3>
+                <p class="text-gray-600 text-sm">Kurikulum kami selalu diperbarui sesuai dengan kebutuhan industri.</p>
+            </div>
+            <div class="card text-center">
+                <div class="icon">
+                    <i class="fa-solid fa-users-gear mx-auto"></i>
+                </div>
+                <h3 class="font-semibold text-gray-900 mb-2">Mentor Berpengalaman</h3>
+                <p class="text-gray-600 text-sm">Belajar langsung dari praktisi yang ahli di bidangnya.</p>
+            </div>
+            <div class="card text-center">
+                <div class="icon">
+                    <i class="fa-solid fa-laptop-code mx-auto"></i>
+                </div>
+                <h3 class="font-semibold text-gray-900 mb-2">Proyek Nyata</h3>
+                <p class="text-gray-600 text-sm">Kerjakan proyek portofolio untuk membangun pengalaman praktis.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
+        <div class="max-w-3xl mx-auto">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <p class="text-lg font-semibold text-gray-900">Apa perbedaan antara Paid Bootcamp dan Free Bootcamp?</p>
+                    <i class="fas fa-chevron-down text-purple-600 transition-transform duration-300"></i>
+                </div>
+                <div class="faq-answer pb-6 text-gray-600">
+                    <p>Paid Bootcamp menawarkan kurikulum yang lebih mendalam, sesi mentoring 1-on-1, dan bantuan penempatan kerja, yang tidak tersedia di program gratis.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <p class="text-lg font-semibold text-gray-900">Apakah ada prasyarat untuk mengikuti bootcamp?</p>
+                    <i class="fas fa-chevron-down text-purple-600 transition-transform duration-300"></i>
+                </div>
+                <div class="faq-answer pb-6 text-gray-600">
+                    <p>Tidak ada prasyarat formal. Bootcamp ini dirancang untuk pemula, tetapi pengetahuan dasar tentang komputer dan internet akan sangat membantu.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <p class="text-lg font-semibold text-gray-900">Bagaimana saya bisa mendapatkan bantuan penempatan kerja?</p>
+                    <i class="fas fa-chevron-down text-purple-600 transition-transform duration-300"></i>
+                </div>
+                <div class="faq-answer pb-6 text-gray-600">
+                    <p>Program Premium kami mencakup sesi persiapan wawancara, workshop CV, dan akses ke jaringan perusahaan mitra kami untuk membantu Anda mendapatkan pekerjaan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Lokasi Section -->
+<section id="lokasi" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <h2 class="section-title">Lokasi Kami</h2>
+        <div class="card p-8 md:flex md:space-x-8">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521808061448!2d106.82470721476906!3d-6.19538359550993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4305f24256f%3A0x7d81a8b11c97a22!2sMonas%20(Monumen%20Nasional)!5e0!3m2!1sen!2sid!4v1642132646067!5m2=1sen!2sid" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="md:w-1/2">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-900">Kantor Pusat</h3>
+                <p class="text-gray-600 mb-2">Jalan Merdeka Raya No. 123, Jakarta Pusat</p>
+                <p class="text-gray-600 mb-2">Kode Pos 10110</p>
+                <div class="mt-6 space-y-4">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                        <span class="ml-2 text-gray-600">+62 812 3456 7890</span>
+                    </div>
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <span class="ml-2 text-gray-600">halo@bootcamp.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-gray-200 py-12">
+    <div class="container mx-auto px-4 flex flex-col items-center text-center">
+        <p id="user-id" class="text-xs text-gray-500 mb-4"></p>
+        <div class="flex space-x-6 mb-4">
+            <a href="#" class="text-gray-600 hover:text-purple-700 transition-colors"><i class="fab fa-linkedin fa-lg"></i></a>
+            <a href="#" class="text-gray-600 hover:text-purple-700 transition-colors"><i class="fab fa-twitter fa-lg"></i></a>
+            <a href="#" class="text-gray-600 hover:text-purple-700 transition-colors"><i class="fab fa-instagram fa-lg"></i></a>
+        </div>
+        <p class="text-gray-500 text-sm">&copy; 2023 PT Edukasi Tujuh Belas. All rights reserved.</p>
+    </div>
+</footer>
+
+<div id="success-modal" class="modal-overlay">
+    <div class="modal-content relative">
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Pendaftaran Berhasil!</h3>
+        <p class="text-lg md:text-xl text-gray-700 mb-6">Terima kasih, data Anda sudah kami terima. Kami akan menghubungi Anda dalam waktu 24 jam.</p>
+        <button id="close-modal-btn" class="btn-primary inline-block">Tutup</button>
+    </div>
+</div>
+
+<script type="module">
+    // Import Firebase services
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getAuth, signInWithCustomToken, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+    // Global variables for Firebase configuration (provided by the environment)
+    const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+    const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+    const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+    // Initialize Firebase app and services
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+
+    let userId = null;
+
+    // --- Authentication ---
+    async function authenticate() {
+        try {
+            if (initialAuthToken) {
+                const userCredential = await signInWithCustomToken(auth, initialAuthToken);
+                userId = userCredential.user.uid;
+            } else {
+                const userCredential = await signInAnonymously(auth);
+                userId = userCredential.user.uid;
+            }
+            document.getElementById('user-id').textContent = `User ID: ${userId}`;
+        } catch (error) {
+            console.error("Authentication Error:", error);
+            userId = crypto.randomUUID();
+            document.getElementById('user-id').textContent = `Anon ID: ${userId}`;
+        }
+    }
+    
+    // --- Firestore Data Saving ---
+    async function saveRegistration(data) {
+        if (!userId) {
+            console.error("User not authenticated. Cannot save data.");
+            return;
+        }
+
+        const collectionPath = `/artifacts/${appId}/users/${userId}/registrations`;
+
+        try {
+            await addDoc(collection(db, collectionPath), {
+                ...data,
+                timestamp: new Date()
+            });
+            showModal();
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        }
+    }
+    
+    // --- Form Handling ---
+    const form = document.getElementById('registration-form');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            bootcamp: document.getElementById('bootcamp-choice').value,
+        };
+        await saveRegistration(formData);
+    });
+
+    // --- Modal Functions ---
+    const modal = document.getElementById('success-modal');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+
+    function showModal() {
+        modal.classList.add('active');
+    }
+
+    closeModalBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+    });
+
+    // --- Syllabus & FAQ Toggle Functions (Refactored to use event listeners) ---
+    const syllabusItems = document.querySelectorAll('.syllabus-item');
+    syllabusItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const syllabusContent = item.querySelector('.syllabus-content');
+            const icon = item.querySelector('i');
+
+            const isActive = syllabusContent.classList.contains('active');
+
+            // Close all other open syllabus sections
+            document.querySelectorAll('.syllabus-content.active').forEach(content => {
+                content.classList.remove('active');
+                content.closest('.syllabus-item').querySelector('i').classList.remove('rotate-180');
+            });
+
+            // Toggle the clicked one
+            if (!isActive) {
+                syllabusContent.classList.add('active');
+                icon.classList.add('rotate-180');
+            }
+        });
+    });
+
+    const faqItems = document.querySelectorAll('.faq-question');
+    faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const faqAnswer = item.nextElementSibling;
+            const icon = item.querySelector('i');
+
+            const isActive = faqAnswer.classList.contains('active');
+
+            // Close all other open FAQ sections
+            document.querySelectorAll('.faq-answer.active').forEach(answer => {
+                answer.classList.remove('active');
+                answer.previousElementSibling.querySelector('i').classList.remove('rotate-180');
+            });
+
+            // Toggle the clicked one
+            if (!isActive) {
+                faqAnswer.classList.add('active');
+                icon.classList.add('rotate-180');
+            }
+        });
+    });
+
+    // Initialize authentication on page load
+    window.onload = authenticate;
+</script>
+
+</body>
+</html>
