@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran Bootcamp</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <nav class="bg-white bg-opacity-80 backdrop-blur-md shadow-sm py-4 px-4 fixed w-full z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 text-xl font-bold text-gray-900">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#FFC107]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L12 21M12 21L14.25 17M12 21V3" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3C8.134 3 5 6.134 5 10s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7z" />
+                </svg>
+                <span class="text-gradient">PT Edukasi Tujuh Belas</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="paid.html" class="text-gray-600 hover:text-purple-700 transition-colors">Paid</a>
+                <a href="free.html" class="text-gray-600 hover:text-purple-700 transition-colors">Free</a>
+                <a href="softclass.html" class="text-gray-600 hover:text-purple-700 transition-colors">Softclass</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Form Section -->
+    <main class="flex-1 flex items-center justify-center pt-32 pb-16">
+        <div class="w-full max-w-lg card p-8">
+            <h1 class="text-3xl font-bold text-center mb-6 text-gray-900">Formulir Pendaftaran</h1>
+            <form id="registration-form" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
+                    <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2" required>
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700">Nomor Telepon</label>
+                    <input type="tel" id="phone" name="phone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2" required>
+                </div>
+                <div>
+                    <label for="bootcamp-choice" class="block text-sm font-medium text-gray-700">Pilihan Program</label>
+                    <select id="bootcamp-choice" name="bootcamp-choice" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2" required>
+                        <option value="">Pilih Program</option>
+                        <option value="full-stack">Full-Stack Web Development (Paid)</option>
+                        <option value="qa">Software Quality Assurance (Paid)</option>
+                        <option value="enterprise">Enterprise Software Mastery (Paid)</option>
+                        <option value="free-bootcamp">Free Bootcamp</option>
+                        <option value="outsystem">Outsystem (Free)</option>
+                        <option value="temenos">Temenos 24 (Free)</option>
+                        <option value="softskill-class">Soft Skill Class</option>
+                    </select>
+                </div>
+                <div>
+                    <button type="submit" class="w-full btn-primary py-3 rounded-md">Daftar Sekarang</button>
+                </div>
+            </form>
+            <div id="form-message" class="mt-6 text-center text-green-600 font-semibold hidden"></div>
+        </div>
+    </main>
+
+    <!-- Modal Sukses -->
+    <div id="success-modal" class="modal-overlay">
+        <div class="modal-content relative">
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Pendaftaran Berhasil!</h3>
+            <p class="text-lg md:text-xl text-gray-700 mb-6">Terima kasih, data Anda sudah kami terima. Silakan cek email Anda untuk konfirmasi pendaftaran.</p>
+            <button id="close-modal-btn" class="btn-primary inline-block">Tutup</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 py-8 mt-auto">
+        <div class="container mx-auto px-4 flex flex-col items-center text-center">
+            <div class="flex space-x-6 mb-4">
+                <a href="#" class="text-gray-600 hover:text-purple-700 transition-colors"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="#" class="text-gray-600 hover:text-purple-700 transition-colors"><i class="fab fa-twitter fa-lg"></i></a>
+                <a href="#" class="text-gray-600 hover:text-purple-700 transition-colors"><i class="fab fa-instagram fa-lg"></i></a>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2023 PT Edukasi Tujuh Belas. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

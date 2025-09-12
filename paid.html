@@ -12,131 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F3F4F6;
-            color: #1F2937;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1F2937;
-            margin-bottom: 4rem;
-        }
-        .btn-primary {
-            background-image: linear-gradient(45deg, #A855F7, #7E22CE);
-            color: #ffffff;
-            font-weight: 600;
-            padding: 0.75rem 2rem;
-            transition: transform 0.2s ease-in-out;
-            border-radius: 9999px;
-        }
-        .btn-primary:hover {
-            transform: scale(1.05);
-        }
-        .card {
-            background-color: #ffffff;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-            border-radius: 1rem;
-        }
-        .card:hover {
-            transform: translateY(-8px);
-        }
-        .icon {
-            color: #7E22CE;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .text-gradient {
-            background-image: linear-gradient(45deg, #7E22CE, #FFC107);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-background {
-            background-image: linear-gradient(135deg, #F3E8FF, #FFFBEB);
-        }
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 100;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .modal-overlay.active {
-            display: flex;
-            opacity: 1;
-        }
-        .modal-content {
-            background-color: #ffffff;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            transform: scale(0.95);
-            transition: transform 0.3s ease;
-        }
-        .modal-overlay.active .modal-content {
-            transform: scale(1);
-        }
-        .syllabus-item {
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        .syllabus-item:hover {
-            background-color: #f1f5f9;
-        }
-        .syllabus-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-in-out;
-        }
-        .syllabus-content.active {
-            max-height: 500px;
-        }
-        /* FAQ Styles */
-        .faq-item {
-            border-bottom: 1px solid #E5E7EB;
-        }
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-        .faq-question {
-            cursor: pointer;
-            padding: 1.5rem 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-in-out;
-        }
-        .faq-answer.active {
-            max-height: 200px;
-        }
-        .faq-question i {
-            transition: transform 0.3s ease-in-out;
-        }
-        .faq-question.active i {
-            transform: rotate(180deg);
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="bg-gray-100 text-gray-900">
 
@@ -155,49 +32,21 @@
             <a href="free.html" class="text-gray-600 hover:text-purple-700 transition-colors">Free</a>
             <a href="softclass.html" class="text-gray-600 hover:text-purple-700 transition-colors">Softclass</a>
         </div>
-        <a href="#daftar" class="btn-primary">Daftar Sekarang</a>
+    <a href="register.html" class="btn-primary">Daftar Sekarang</a>
     </div>
 </nav>
 
-<!-- Hero Section with Form -->
-<header id="daftar" class="relative w-full min-h-screen flex items-center justify-center overflow-hidden hero-background py-16">
+<!-- Hero Section Tanpa Form (Form dipindah ke register.html) -->
+<header class="relative w-full min-h-screen flex items-center justify-center overflow-hidden hero-background py-16">
     <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div class="text-center md:text-left">
+        <div class="text-center md:text-left col-span-2">
             <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
                 Transformasi Karier Anda Dimulai di Sini
             </h1>
             <p class="text-lg md:text-xl text-gray-600 mb-8">
                 Dapatkan keterampilan teknis dan non-teknis yang paling dicari untuk meraih pekerjaan impian Anda di dunia IT.
             </p>
-        </div>
-        <div class="w-full card p-8">
-            <h2 class="text-2xl font-bold text-center mb-6 text-gray-900">Daftar Sekarang</h2>
-            <form id="registration-form" class="space-y-6">
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
-                    <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2" required>
-                </div>
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2" required>
-                </div>
-                <div>
-                    <label for="phone" class="block text-sm font-medium text-gray-700">Nomor Telepon</label>
-                    <input type="tel" id="phone" name="phone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2" required>
-                </div>
-                <div>
-                    <label for="bootcamp-choice" class="block text-sm font-medium text-gray-700">Pilihan Bootcamp</label>
-                    <select id="bootcamp-choice" name="bootcamp-choice" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2" required>
-                        <option value="">Pilih Program</option>
-                        <option value="full-stack">Full-Stack Web Development</option>
-                        <option value="qa">Software Quality Assurance</option>
-                        <option value="enterprise">Enterprise Software Mastery</option>
-                    </select>
-                </div>
-                <div>
-                    <button type="submit" class="w-full btn-primary py-3 rounded-md">Daftar Sekarang</button>
-                </div>
-            </form>
+            <a href="register.html" class="btn-primary inline-block px-8 py-3 text-lg">Daftar Sekarang</a>
         </div>
     </div>
 </header>
@@ -235,19 +84,19 @@
                 <i class="fa-solid fa-code icon mb-4"></i>
                 <h3 class="text-xl font-semibold text-gray-900 mb-2">Full-Stack Web Development</h3>
                 <p class="text-gray-600 mb-4">Pelajari teknologi inti seperti **ReactJS** dan **NodeJS** untuk membangun aplikasi web yang modern dan responsif dari nol.</p>
-                <a href="#daftar" class="mt-auto btn-primary inline-block">Daftar Sekarang</a>
+                <a href="register.html" class="mt-auto btn-primary inline-block">Daftar Sekarang</a>
             </div>
             <div class="card flex flex-col items-center text-center">
                 <i class="fa-solid fa-bug icon mb-4"></i>
                 <h3 class="text-xl font-semibold text-gray-900 mb-2">Software Quality Assurance</h3>
                 <p class="text-gray-600 mb-4">Kuasai **Manual Testing** dan **Automation Testing (Katalon)** untuk memastikan kualitas produk software yang tak tertandingi.</p>
-                <a href="#daftar" class="mt-auto btn-primary inline-block">Daftar Sekarang</a>
+                <a href="register.html" class="mt-auto btn-primary inline-block">Daftar Sekarang</a>
             </div>
             <div class="card flex flex-col items-center text-center">
                 <i class="fa-solid fa-database icon mb-4"></i>
                 <h3 class="text-xl font-semibold text-gray-900 mb-2">Enterprise Software Mastery</h3>
                 <p class="text-gray-600 mb-4">Spesialisasikan diri Anda pada platform bisnis terkemuka seperti **Outsystem** dan **Temenos 24**.</p>
-                <a href="#daftar" class="mt-auto btn-primary inline-block">Daftar Sekarang</a>
+                <a href="register.html" class="mt-auto btn-primary inline-block">Daftar Sekarang</a>
             </div>
         </div>
     </div>
@@ -398,7 +247,7 @@
                 <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Mentoring 1-on-1</li>
                 <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Bantuan Penempatan Kerja</li>
             </ul>
-            <a href="#daftar" class="w-full btn-primary inline-block">Daftar Sekarang</a>
+            <a href="register.html" class="w-full btn-primary inline-block">Daftar Sekarang</a>
         </div>
     </div>
 </section>
@@ -563,133 +412,10 @@
     </div>
 </footer>
 
-<div id="success-modal" class="modal-overlay">
-    <div class="modal-content relative">
-        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Pendaftaran Berhasil!</h3>
-        <p class="text-lg md:text-xl text-gray-700 mb-6">Terima kasih, data Anda sudah kami terima. Kami akan menghubungi Anda dalam waktu 24 jam.</p>
-        <button id="close-modal-btn" class="btn-primary inline-block">Tutup</button>
-    </div>
-</div>
 
-<script type="module">
-    // Import Firebase services
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-    import { getAuth, signInWithCustomToken, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-    import { getFirestore, collection, addDoc, onSnapshot, query } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-    // Global variables for Firebase configuration (provided by the environment)
-    const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
-    const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-    const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-
-    // Initialize Firebase app and services
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const auth = getAuth(app);
-
-    let userId = null;
-
-    // --- Authentication ---
-    async function authenticate() {
-        try {
-            if (initialAuthToken) {
-                const userCredential = await signInWithCustomToken(auth, initialAuthToken);
-                userId = userCredential.user.uid;
-            } else {
-                const userCredential = await signInAnonymously(auth);
-                userId = userCredential.user.uid;
-            }
-            document.getElementById('user-id').textContent = `User ID: ${userId}`;
-        } catch (error) {
-            console.error("Authentication Error:", error);
-            userId = crypto.randomUUID();
-            document.getElementById('user-id').textContent = `Anon ID: ${userId}`;
-        }
-    }
-    
-    // --- Firestore Data Saving ---
-    async function saveRegistration(data) {
-        if (!userId) {
-            console.error("User not authenticated. Cannot save data.");
-            return;
-        }
-
-        const collectionPath = `/artifacts/${appId}/users/${userId}/registrations`;
-
-        try {
-            await addDoc(collection(db, collectionPath), {
-                ...data,
-                timestamp: new Date()
-            });
-            showModal();
-        } catch (e) {
-            console.error("Error adding document: ", e);
-        }
-    }
-    
-    // --- Form Handling ---
-    const form = document.getElementById('registration-form');
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            bootcamp: document.getElementById('bootcamp-choice').value,
-        };
-        await saveRegistration(formData);
-    });
-
-    // --- Modal Functions ---
-    function showModal() {
-        const modal = document.getElementById('success-modal');
-        modal.classList.add('active');
-    }
-
-    function closeModal() {
-        const modal = document.getElementById('success-modal');
-        modal.classList.remove('active');
-    }
-    
-    // --- Syllabus Toggle Function ---
-    window.toggleSyllabus = function(element) {
-        const syllabus = element.nextElementSibling;
-        const icon = element.querySelector('i');
-        
-        const isActive = syllabus.classList.contains('active');
-        
-        const allSyllabuses = document.querySelectorAll('.syllabus-content');
-        const allIcons = document.querySelectorAll('.syllabus-item i');
-        
-        allSyllabuses.forEach(s => s.classList.remove('active'));
-        allIcons.forEach(i => i.classList.remove('rotate-180'));
-
-        if (!isActive) {
-            syllabus.classList.add('active');
-            icon.classList.add('rotate-180');
-        }
-    }
-
-    // --- FAQ Toggle Function ---
-    window.toggleFaq = function(element) {
-        const answer = element.nextElementSibling;
-        const icon = element.querySelector('i');
-        
-        const isActive = answer.classList.contains('active');
-
-        document.querySelectorAll('.faq-answer.active').forEach(a => a.classList.remove('active'));
-        document.querySelectorAll('.faq-question.active').forEach(q => q.classList.remove('active'));
-
-        if (!isActive) {
-            answer.classList.add('active');
-            element.classList.add('active');
-            icon.classList.add('rotate-180');
-        }
-    }
-
-    // Initialize authentication on page load
-    window.onload = authenticate;
-</script>
+<!-- Custom JS -->
+<script src="js/main.js"></script>
 
 </body>
 </html>
