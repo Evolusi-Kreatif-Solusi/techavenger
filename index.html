@@ -4,92 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootcamp Landing Page</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F3F4F6;
-            color: #1F2937;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1F2937;
-            margin-bottom: 4rem;
-        }
-        .btn-primary {
-            background-image: linear-gradient(45deg, #A855F7, #7E22CE);
-            color: #ffffff;
-            font-weight: 600;
-            padding: 0.75rem 2rem;
-            transition: transform 0.2s ease-in-out;
-        }
-        .btn-primary:hover {
-            transform: scale(1.05);
-        }
-        .card {
-            background-color: #ffffff;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-            border-radius: 1rem;
-        }
-        .card:hover {
-            transform: translateY(-8px);
-        }
-        .icon {
-            color: #7E22CE;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .text-gradient {
-            background-image: linear-gradient(45deg, #7E22CE, #FFC107);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-background {
-            background-image: linear-gradient(135deg, #F3E8FF, #FFFBEB);
-        }
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 100;
-            transition: opacity 0.3s ease;
-        }
-        .modal-content {
-            background-color: #ffffff;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            transform: scale(0.95);
-            transition: transform 0.3s ease;
-        }
-        .modal-overlay.active .modal-content {
-            transform: scale(1);
-        }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="bg-gray-100 text-gray-900">
 
-<!-- Navbar -->
 <nav class="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-80 backdrop-blur-md shadow-sm">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="#" class="flex items-center space-x-2 text-xl font-bold text-gray-900">
@@ -108,7 +30,6 @@
     </div>
 </nav>
 
-<!-- Hero Section -->
 <header class="relative w-full h-screen flex items-center justify-center text-center overflow-hidden hero-background">
     <div class="relative z-10 p-6 md:p-12 max-w-4xl">
         <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
@@ -121,10 +42,9 @@
     </div>
 </header>
 
-<!-- Modal Popup -->
 <div id="win-modal" class="modal-overlay hidden opacity-0">
     <div class="modal-content relative">
-        <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
+        <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -132,12 +52,11 @@
         <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Selamat!</h3>
         <p class="text-lg md:text-xl text-gray-700">Selamat Anda menang ujian! <br> Silakan daftarkan diri untuk info lebih lanjut.</p>
         <div class="mt-6">
-            <a href="#daftar" onclick="closeModal()" class="btn-primary inline-block rounded-full">Daftar Sekarang</a>
+            <a href="#daftar" id="modal-daftar-btn" class="btn-primary inline-block rounded-full">Daftar Sekarang</a>
         </div>
     </div>
 </div>
 
-<!-- Campaign Section -->
 <section class="py-20 bg-gray-100">
     <div class="container mx-auto px-4 text-center">
         <h2 class="section-title">Filosofi Kami: #TechAvenger Academy</h2>
@@ -157,12 +76,10 @@
     </div>
 </section>
 
-<!-- Pilihan Program Section -->
 <section id="program" class="py-20 bg-white">
     <div class="container mx-auto px-4">
         <h2 class="section-title">Pilihan Program</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Paid Bootcamp -->
             <a href="paid-bootcamp.html" class="card cursor-pointer">
                 <div class="flex flex-col items-center mb-4">
                     <div class="icon">
@@ -181,7 +98,6 @@
                 </ul>
             </a>
 
-            <!-- Free Bootcamp -->
             <a href="free-bootcamp.html" class="card cursor-pointer">
                 <div class="flex flex-col items-center mb-4">
                     <div class="icon">
@@ -200,12 +116,11 @@
                 </ul>
             </a>
 
-            <!-- Soft Skill Class -->
             <a href="softskill-class.html" class="card cursor-pointer">
                 <div class="flex flex-col items-center mb-4">
                     <div class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.484 9.49 5 8 5c-4 0-4 6-4 6s2.571 2 5.067 2c.594 0 1.25.138 1.938.358M12 6.253c1.168-.767 2.51-1.253 4-1.253 4 0 4 6 4 6s-2.571 2-5.067 2c-.594 0-1.25.138-1.938.358m-6 5.804c.346.068.683.15 1.022.251m-1.022-.251C7.729 15.021 9.065 15.657 12 16c2.934-.343 4.276-.979 5.978-1.748M12 16c2.934.343 4.276.979 5.978 1.748M12 16v1m-3 4h6m-6-4h6m-6-4h6m-6-4h6m-6-4h6" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.484 9.49 5 8 5c-4 0-4 6-4 6s2.571 2 5.067 2c.594 0 1.25.138 1.938.358M12 6.253c1.168-.767 2.51-1.253 4-1.253 4 0 4 6 4 6s-2.571 2-5.067 2c-.594 0-1.25.138-1.938.358m-6 5.804c.346.068.683.15 1.022.251m-1.022-.251C7.729 15.021 9.065 15.657 12 16c2.934-.343 4.276-.979 5.978-1.748M12 16c2.934.343 4.276.979 5.978 1.748M12 16v1m-3 4h6m-6-4h6m-6-4h6m-6-4h6" />
                         </svg>
                     </div>
                     <div class="text-center">
@@ -220,12 +135,10 @@
     </div>
 </section>
 
-<!-- Testimoni Section -->
 <section id="testimoni" class="py-20 bg-white">
     <div class="container mx-auto px-4">
         <h2 class="section-title">Apa Kata Mereka?</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Testimoni 1 -->
             <div class="card">
                 <p class="text-gray-600 italic">"Materi sangat lengkap dan mentornya sangat membantu. Saya langsung diterima kerja setelah lulus!"</p>
                 <div class="mt-4 flex items-center">
@@ -236,7 +149,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Testimoni 2 -->
             <div class="card">
                 <p class="text-gray-600 italic">"Lingkungan belajarnya suportif. Saya yang tadinya tidak punya dasar bisa mengikuti dengan mudah."</p>
                 <div class="mt-4 flex items-center">
@@ -247,7 +159,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Testimoni 3 -->
             <div class="card">
                 <p class="text-gray-600 italic">"Kurikulumnya sangat relevan dengan kebutuhan industri. Saya jadi lebih percaya diri untuk melamar pekerjaan."</p>
                 <div class="mt-4 flex items-center">
@@ -262,12 +173,10 @@
     </div>
 </section>
 
-<!-- Why Section -->
 <section class="py-20 bg-gray-100">
     <div class="container mx-auto px-4">
         <h2 class="section-title">Kenapa Memilih Bootcamp Ini?</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Poin 1 -->
             <div class="card text-center">
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -277,7 +186,6 @@
                 <h3 class="font-semibold text-gray-900 mb-2">Kurikulum Terkini</h3>
                 <p class="text-gray-600 text-sm">Kurikulum kami selalu diperbarui sesuai dengan kebutuhan industri.</p>
             </div>
-            <!-- Poin 2 -->
             <div class="card text-center">
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -287,7 +195,6 @@
                 <h3 class="font-semibold text-gray-900 mb-2">Mentor Berpengalaman</h3>
                 <p class="text-gray-600 text-sm">Belajar langsung dari praktisi yang ahli di bidangnya.</p>
             </div>
-            <!-- Poin 3 -->
             <div class="card text-center">
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -301,12 +208,10 @@
     </div>
 </section>
 
-<!-- Metode Kelas Section -->
 <section class="py-20 bg-white">
     <div class="container mx-auto px-4">
         <h2 class="section-title">Metode Kelas</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Metode 1 -->
             <div class="card flex items-center p-6">
                 <div class="icon flex-shrink-0 mr-6">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -318,7 +223,6 @@
                     <p class="text-gray-600">Sesi interaktif dengan mentor untuk pembahasan materi dan tanya jawab.</p>
                 </div>
             </div>
-            <!-- Metode 2 -->
             <div class="card flex items-center p-6">
                 <div class="icon flex-shrink-0 mr-6">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -330,7 +234,6 @@
                     <p class="text-gray-600">Mengerjakan proyek portofolio untuk melatih keterampilan praktis.</p>
                 </div>
             </div>
-            <!-- Metode 3 -->
             <div class="card flex items-center p-6">
                 <div class="icon flex-shrink-0 mr-6">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -346,19 +249,17 @@
     </div>
 </section>
 
-<!-- Lulusan Diterima Kerja Section -->
 <section class="py-20 bg-gray-100">
     <div class="container mx-auto px-4 text-center">
         <h2 class="section-title">Lulusan Kami Diterima Bekerja di</h2>
         <div class="flex flex-wrap justify-center items-center gap-8">
-            <img src="https://placehold.co/150x50/7E22CE/ffffff?text=Bank+DKI" alt="Logo Bank DKI" class="h-12">
-            <img src="https://placehold.co/150x50/7E22CE/ffffff?text=Bank+Syariah+Indonesia" alt="Logo Bank Syariah Indonesia" class="h-12">
-            <img src="https://placehold.co/150x50/7E22CE/ffffff?text=Evoteks" alt="Logo Evoteks" class="h-12">
+            <img src="img/logo-bank-dki.png" alt="Logo Bank DKI" class="h-12">
+            <img src="img/logo-bank-syariah-indonesia.png" alt="Logo Bank Syariah Indonesia" class="h-12">
+            <img src="img/logo-evoteks.png" alt="Logo Evoteks" class="h-12">
         </div>
     </div>
 </section>
 
-<!-- Lokasi Section -->
 <section id="lokasi" class="py-20 bg-white">
     <div class="container mx-auto px-4">
         <h2 class="section-title">Lokasi Kami</h2>
@@ -389,11 +290,9 @@
     </div>
 </section>
 
-<!-- Footer dan Sosmed -->
 <footer class="bg-gray-200 py-12">
     <div class="container mx-auto px-4 flex flex-col items-center text-center">
         <div class="flex space-x-6 mb-4">
-            <!-- Sosmed Icons -->
             <a href="#" class="text-gray-600 hover:text-purple-700 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.619 0-1.144-.523-1.144-1.163s.525-1.163 1.144-1.163 1.144.523 1.144 1.163-.525 1.163-1.144 1.163zm7 6.891h-2v-3.493c0-.945-.098-1.272-.514-1.636-.381-.354-.86-.549-1.579-.549-1.157 0-1.921.727-2.225 1.799v3.879h-2v-6h1.897v.889c.81-.663 1.547-1.115 2.531-1.115 1.761 0 3.125 1.258 3.125 3.929v3.297z"/>
@@ -410,45 +309,10 @@
                 </svg>
             </a>
         </div>
-        <p class="text-gray-500 text-sm">&copy; 2023 PT Edukasi Tujuh Belas. All rights reserved</p>
+        <p class="text-gray-500 text-sm">© 2023 PT Edukasi Tujuh Belas. All rights reserved</p>
     </div>
 </footer>
 
-<script>
-    function toggleSyllabus(element) {
-        const syllabus = element.nextElementSibling;
-        const icon = element.querySelector('i');
-        
-        const isActive = syllabus.classList.contains('active');
-        
-        const allSyllabuses = document.querySelectorAll('.syllabus-content');
-        const allIcons = document.querySelectorAll('.syllabus-item i');
-        
-        allSyllabuses.forEach(s => s.classList.remove('active'));
-        allIcons.forEach(i => i.classList.remove('rotate-180'));
-
-        if (!isActive) {
-            syllabus.classList.add('active');
-            icon.classList.add('rotate-180');
-        }
-    }
-
-    function toggleFaq(element) {
-        const answer = element.nextElementSibling;
-        const icon = element.querySelector('i');
-        
-        const isActive = answer.classList.contains('active');
-
-        document.querySelectorAll('.faq-answer.active').forEach(a => a.classList.remove('active'));
-        document.querySelectorAll('.faq-question.active').forEach(q => q.classList.remove('active'));
-
-        if (!isActive) {
-            answer.classList.add('active');
-            element.classList.add('active');
-            icon.classList.add('rotate-180');
-        }
-    }
-</script>
-
+<script src="js/main.js"></script>
 </body>
 </html>
