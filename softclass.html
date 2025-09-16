@@ -21,11 +21,7 @@
 <nav class="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-80 backdrop-blur-md shadow-sm">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="index.html" class="flex items-center space-x-2 text-xl font-bold text-gray-900">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#FFC107]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L12 21M12 21L14.25 17M12 21V3" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3C8.134 3 5 6.134 5 10s3.134 7 7 7 7-3.134 7-7-3.134-7-7-7z" />
-            </svg>
-            <span class="text-gradient">PT Edukasi Tujuh Belas</span>
+            <img src="img/e17course.png" alt="E17COURSE Logo" class="h-10 w-auto" style="max-width:180px;">
         </a>
         <div class="hidden md:flex space-x-8">
             <a href="paid.html" class="text-gray-600 hover:text-purple-700 transition-colors">Paid</a>
@@ -38,16 +34,14 @@
 
 <!-- Hero Section Tanpa Form (Form dipindah ke register.html) -->
 <header class="relative w-full min-h-screen flex items-center justify-center overflow-hidden hero-background py-16">
-    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div class="text-center md:text-left col-span-2">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
-                Kuasai Soft Skill untuk Sukses di Era Digital!
-            </h1>
-            <p class="text-lg md:text-xl text-gray-600 mb-8">
-                Tingkatkan kemampuan komunikasi, kepemimpinan, dan kerja tim Anda untuk membuka peluang karier tanpa batas.
-            </p>
-            <a href="register.html" class="btn-primary inline-block px-8 py-3 text-lg">Daftar Sekarang</a>
-        </div>
+    <div class="container mx-auto px-4 flex flex-col items-center justify-center text-center min-h-[60vh]">
+        <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
+            Kuasai Soft Skill untuk Sukses di Era Digital!
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 mb-8">
+            Tingkatkan kemampuan komunikasi, kepemimpinan, dan kerja tim Anda untuk membuka peluang karier tanpa batas. Kelas ini cocok untuk semua profesi dan level pengalaman, didampingi mentor yang berpengalaman.
+        </p>
+        <a href="register.html" class="btn-primary inline-block px-8 py-3 text-lg">Daftar Sekarang</a>
     </div>
 </header>
 
@@ -83,13 +77,13 @@
             <div class="card flex flex-col items-center text-center">
                 <i class="fa-solid fa-handshake-angle icon mb-4"></i>
                 <h3 class="text-xl font-semibold text-gray-900 mb-2">Komunikasi Efektif</h3>
-                <p class="text-gray-600 mb-4">Pelajari cara menyampaikan ide dengan jelas, mendengarkan secara aktif, dan membangun hubungan profesional yang kuat.</p>
+                <p class="text-gray-600 mb-4">Pelajari cara menyampaikan ide dengan jelas, membangun relasi profesional, dan mendengarkan aktif. Soft skill yang diasah di sini akan langsung terasa manfaatnya di dunia kerja.</p>
                 <a href="register.html" class="mt-auto btn-primary inline-block">Daftar Sekarang</a>
             </div>
             <div class="card flex flex-col items-center text-center">
                 <i class="fa-solid fa-user-tie icon mb-4"></i>
                 <h3 class="text-xl font-semibold text-gray-900 mb-2">Kepemimpinan Digital</h3>
-                <p class="text-gray-600 mb-4">Kuasai dasar-dasar kepemimpinan untuk memimpin tim secara efektif dalam lingkungan kerja yang dinamis.</p>
+                <p class="text-gray-600 mb-4">Kuasai dasar kepemimpinan, manajemen tim, dan strategi sukses di dunia kerja modern. Siap menjadi pemimpin yang inspiratif dan adaptif.</p>
                 <a href="register.html" class="mt-auto btn-primary inline-block">Daftar Sekarang</a>
             </div>
         </div>
@@ -166,7 +160,7 @@
         <div class="card max-w-md mx-auto p-8 border-2 border-purple-700">
             <h3 class="text-2xl font-bold mb-4 text-purple-700">Kelas Soft Skill</h3>
             <p class="text-5xl font-extrabold mb-2 text-gray-900">Rp 20.000</p>
-            <p class="text-gray-500 mb-6">Sekali bayar</p>
+            <p class="text-gray-500 mb-6">Hanya Rp 20.000, investasi soft skill Anda. Sesi live bersama mentor, sertifikat digital, dan proyek nyata untuk pengembangan diri.</p>
             <ul class="text-gray-700 text-left space-y-3 mb-6">
                 <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Sesi Live bersama mentor</li>
                 <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Lulusan dapat sertifikat</li>
@@ -262,29 +256,29 @@
         <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
         <div class="max-w-3xl mx-auto">
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question cursor-pointer flex justify-between items-center py-4 px-2" onclick="toggleFaq(this)">
                     <p class="text-lg font-semibold text-gray-900">Apakah kelas ini cocok untuk semua tingkat pengalaman?</p>
                     <i class="fas fa-chevron-down text-purple-600 transition-transform duration-300"></i>
                 </div>
-                <div class="faq-answer pb-6 text-gray-600">
+                <div class="faq-answer pb-6 text-gray-600 max-h-0 overflow-hidden transition-all duration-300">
                     <p>Ya, program ini dirancang untuk pemula hingga profesional yang ingin mengasah soft skill mereka.</p>
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question cursor-pointer flex justify-between items-center py-4 px-2" onclick="toggleFaq(this)">
                     <p class="text-lg font-semibold text-gray-900">Bagaimana saya bisa mendapatkan sertifikat?</p>
                     <i class="fas fa-chevron-down text-purple-600 transition-transform duration-300"></i>
                 </div>
-                <div class="faq-answer pb-6 text-gray-600">
+                <div class="faq-answer pb-6 text-gray-600 max-h-0 overflow-hidden transition-all duration-300">
                     <p>Anda akan menerima sertifikat digital setelah menyelesaikan semua modul dan proyek akhir dengan memenuhi syarat yang ditentukan.</p>
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question cursor-pointer flex justify-between items-center py-4 px-2" onclick="toggleFaq(this)">
                     <p class="text-lg font-semibold text-gray-900">Apakah saya perlu menguasai IT untuk mengikuti kelas ini?</p>
                     <i class="fas fa-chevron-down text-purple-600 transition-transform duration-300"></i>
                 </div>
-                <div class="faq-answer pb-6 text-gray-600">
+                <div class="faq-answer pb-6 text-gray-600 max-h-0 overflow-hidden transition-all duration-300">
                     <p>Tidak. Kelas ini berfokus pada soft skill yang relevan untuk semua industri, bukan hanya IT.</p>
                 </div>
             </div>
@@ -339,6 +333,32 @@
 
 <!-- Custom JS -->
 <script src="js/main.js"></script>
+<script>
+function toggleFaq(element) {
+    const answer = element.nextElementSibling;
+    const icon = element.querySelector('i');
+    const isOpen = answer.classList.contains('active');
+    document.querySelectorAll('.faq-answer.active').forEach(a => {
+        a.classList.remove('active');
+        a.style.maxHeight = '0px';
+    });
+    document.querySelectorAll('.faq-question.active').forEach(q => {
+        q.classList.remove('active');
+        q.querySelector('i').classList.remove('rotate-180');
+    });
+    if (!isOpen) {
+        answer.classList.add('active');
+        element.classList.add('active');
+        icon.classList.add('rotate-180');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+    } else {
+        answer.classList.remove('active');
+        element.classList.remove('active');
+        icon.classList.remove('rotate-180');
+        answer.style.maxHeight = '0px';
+    }
+}
+</script>
 
 </body>
 </html>

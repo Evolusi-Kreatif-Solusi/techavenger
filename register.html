@@ -36,69 +36,87 @@
 
     <!-- Form Section -->
     <main class="flex-1 flex items-center justify-center pt-32 pb-16">
-        <div class="w-full max-w-lg card p-8">
-            <h1 class="text-3xl font-bold text-center mb-6 text-gray-900">Formulir Pendaftaran</h1>
-            <form action="register.php" method="post" enctype="multipart/form-data" class="space-y-6">
-                <div>
-                    <label for="nama" class="block text-sm font-medium text-gray-700">Nama Lengkap*</label>
-                    <input type="text" id="nama" name="nama" maxlength="100" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
+        <div class="w-full max-w-4xl bg-white rounded-xl shadow-lg p-0 flex flex-col md:flex-row overflow-hidden">
+            <form id="registration-form" action="register.php" method="post" enctype="multipart/form-data" class="w-full flex flex-col md:flex-row">
+                <div class="w-full md:w-1/2 p-10 bg-white flex flex-col justify-center">
+                    <h2 class="text-2xl font-bold mb-8 text-purple-700">General Information</h2>
+                    <div>
+                        <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap*</label>
+                        <input type="text" id="nama" name="nama" maxlength="100" required class="block w-full border-b border-gray-300 focus:border-blue-500 focus:ring-0 bg-transparent py-2 px-0 text-gray-900 outline-none">
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-1/2">
+                            <label for="domisili" class="block text-sm font-medium text-gray-700 mb-2">Domisili</label>
+                            <input type="text" id="domisili" name="domisili" maxlength="100" class="block w-full border-b border-gray-300 focus:border-blue-500 focus:ring-0 bg-transparent py-2 px-0 text-gray-900 outline-none">
+                        </div>
+                        <div class="w-1/2">
+                            <label for="profesi" class="block text-sm font-medium text-gray-700 mb-2">Profesi</label>
+                            <input type="text" id="profesi" name="profesi" maxlength="100" class="block w-full border-b border-gray-300 focus:border-blue-500 focus:ring-0 bg-transparent py-2 px-0 text-gray-900 outline-none">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="file_upload" class="block text-sm font-medium text-gray-700 mb-2">Upload File</label>
+                        <input type="file" id="file_upload" name="file_upload" accept=".pdf,.jpg,.jpeg,.png" class="block w-full border-b border-gray-300 focus:border-blue-500 focus:ring-0 bg-transparent py-2 px-0 text-gray-900 outline-none">
+                    </div>
                 </div>
-                <div>
-                    <label for="nomor_wa" class="block text-sm font-medium text-gray-700">Nomor WA*</label>
-                    <input type="text" id="nomor_wa" name="nomor_wa" maxlength="20" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
-                </div>
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email" id="email" name="email" maxlength="100" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
-                </div>
-                <div>
-                    <label for="domisili" class="block text-sm font-medium text-gray-700">Domisili</label>
-                    <input type="text" id="domisili" name="domisili" maxlength="100" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
-                </div>
-                <div>
-                    <label for="profesi" class="block text-sm font-medium text-gray-700">Profesi</label>
-                    <input type="text" id="profesi" name="profesi" maxlength="100" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
-                </div>
-                <div>
-                    <label for="kelas_yang_dipilih" class="block text-sm font-medium text-gray-700">Kelas yang Dipilih*</label>
-                    <select id="kelas_yang_dipilih" name="kelas_yang_dipilih" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
-                        <option value="paid">Paid</option>
-                        <option value="free">Free</option>
-                        <option value="softclass">Softclass</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="file_upload" class="block text-sm font-medium text-gray-700">Upload File</label>
-                    <input type="file" id="file_upload" name="file_upload" accept=".pdf,.jpg,.jpeg,.png" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
-                </div>
-                <div>
-                    <label for="sumber_informasi" class="block text-sm font-medium text-gray-700">Sumber Informasi*</label>
-                    <select id="sumber_informasi" name="sumber_informasi" required onchange="toggleLainnya(this)" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
-                        <option value="relasi">Relasi</option>
-                        <option value="instagram">Instagram</option>
-                        <option value="tiktok">Tiktok</option>
-                        <option value="facebook">Facebook</option>
-                        <option value="linkedin">LinkedIn</option>
-                        <option value="WA Group">WA Group</option>
-                        <option value="Website">Website</option>
-                        <option value="Undangan Email">Undangan Email</option>
-                        <option value="Telegroup">Telegroup</option>
-                        <option value="lainnya">Lainnya</option>
-                    </select>
-                </div>
-                <div id="input_lainnya_container" style="display:none;">
-                    <label for="input_lainnya" class="block text-sm font-medium text-gray-700">Sebutkan sumber lainnya</label>
-                    <input type="text" id="input_lainnya" name="input_lainnya" maxlength="255" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
-                </div>
-                <div>
-                    <label for="akun_pemberi_informasi" class="block text-sm font-medium text-gray-700">Akun Pemberi Informasi</label>
-                    <input type="text" id="akun_pemberi_informasi" name="akun_pemberi_informasi" maxlength="100" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm p-2">
-                </div>
-                <div>
-                    <button type="submit" class="w-full btn-primary py-3 rounded-md">Daftar Sekarang</button>
+                <div class="w-full md:w-1/2 p-10 bg-purple-700 flex flex-col justify-center text-white">
+                    <h2 class="text-2xl font-bold mb-8">Contact Details</h2>
+                    <div>
+                        <label for="nomor_wa" class="block text-sm font-medium mb-2">Nomor WA*</label>
+                        <input type="text" id="nomor_wa" name="nomor_wa" maxlength="20" required class="block w-full border-b border-white focus:border-white focus:ring-0 bg-white/30 py-2 px-2 text-white outline-none placeholder:text-purple-200 rounded">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                        <input type="email" id="email" name="email" maxlength="100" required class="block w-full border-b border-white focus:border-white focus:ring-0 bg-white/30 py-2 px-2 text-white outline-none placeholder:text-purple-200 rounded">
+                    </div>
+                    <div>
+                        <label for="kelas_yang_dipilih" class="block text-sm font-medium mb-2">Program*</label>
+                        <select id="kelas_yang_dipilih" name="kelas_yang_dipilih" required class="block w-full border-b border-white focus:border-white focus:ring-0 bg-white/30 py-2 px-2 text-black outline-none rounded" onchange="updateKelasOptions(); toggleTerms();">
+                            <option value="paid">Paid</option>
+                            <option value="free">Free</option>
+                            <option value="softclass">Softclass</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="kelas_pilihan" class="block text-sm font-medium mb-2">Kelas yang Tersedia*</label>
+                        <select id="kelas_pilihan" name="kelas_pilihan" required class="block w-full border-b border-white focus:border-white focus:ring-0 bg-white/30 py-2 px-2 text-black outline-none rounded">
+                            <!-- Options akan diisi oleh JS -->
+                        </select>
+                    </div>
+                    <div>
+                        <label for="sumber_informasi" class="block text-sm font-medium mb-2">Sumber Informasi*</label>
+                        <select id="sumber_informasi" name="sumber_informasi" required onchange="toggleLainnya(this)" class="block w-full border-b border-white focus:border-white focus:ring-0 bg-white/30 py-2 px-2 text-black outline-none rounded">
+                            <option value="relasi">Relasi</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="tiktok">Tiktok</option>
+                            <option value="facebook">Facebook</option>
+                            <option value="linkedin">LinkedIn</option>
+                            <option value="WA Group">WA Group</option>
+                            <option value="Website">Website</option>
+                            <option value="Undangan Email">Undangan Email</option>
+                            <option value="Telegroup">Telegroup</option>
+                            <option value="lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    <div id="input_lainnya_container" style="display:none;">
+                        <label for="input_lainnya" class="block text-sm font-medium mb-2">Sebutkan sumber lainnya</label>
+                        <input type="text" id="input_lainnya" name="input_lainnya" maxlength="255" class="block w-full border-b border-white focus:border-white focus:ring-0 bg-white/30 py-2 px-2 text-black outline-none placeholder:text-purple-200 rounded">
+                    </div>
+                    <div>
+                        <label for="akun_pemberi_informasi" class="block text-sm font-medium mb-2">Akun Pemberi Informasi</label>
+                        <input type="text" id="akun_pemberi_informasi" name="akun_pemberi_informasi" maxlength="100" class="block w-full border-b border-white focus:border-white focus:ring-0 bg-white/30 py-2 px-2 text-black outline-none placeholder:text-purple-200 rounded">
+                    </div>
+                    <div class="flex items-center mt-4">
+                        <div id="terms-container" style="display:none;">
+                            <input type="checkbox" id="accept_terms" name="accept_terms" class="mr-2">
+                            <label for="accept_terms" class="text-sm">Saya menerima <a href="#" class="underline">Syarat & Ketentuan</a></label>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <button type="submit" class="w-full bg-white text-purple-700 font-bold py-3 rounded-full shadow hover:bg-purple-100 transition">Daftar Sekarang</button>
+                    </div>
                 </div>
             </form>
-            <div id="form-message" class="mt-6 text-center text-green-600 font-semibold hidden"></div>
         </div>
     </main>
 
@@ -126,6 +144,122 @@
 
     <!-- Custom JS -->
         <script>
+        function toggleTerms() {
+            var program = document.getElementById('kelas_yang_dipilih').value;
+            var terms = document.getElementById('terms-container');
+            var checkbox = document.getElementById('accept_terms');
+            if (program === 'free') {
+                terms.style.display = 'flex';
+                checkbox.setAttribute('required', 'required');
+            } else {
+                terms.style.display = 'none';
+                checkbox.removeAttribute('required');
+                checkbox.checked = false;
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            toggleTerms();
+        });
+        // Kelas dan subkelas yang tersedia per program
+
+        function updateKelasOptions() {
+            const program = document.getElementById('kelas_yang_dipilih').value;
+            const kelasSelect = document.getElementById('kelas_pilihan');
+            kelasSelect.innerHTML = '';
+            const kelasList = kelasOptions[program];
+            Object.keys(kelasList).forEach(function(kelas) {
+                const subkelas = kelasList[kelas];
+                if (subkelas.length > 0) {
+                    // Grouped options
+                    const optgroup = document.createElement('optgroup');
+                    optgroup.label = kelas;
+                    subkelas.forEach(function(sub) {
+                        const opt = document.createElement('option');
+                        opt.value = sub;
+                        opt.textContent = sub;
+                        optgroup.appendChild(opt);
+                    });
+                    kelasSelect.appendChild(optgroup);
+                } else {
+                    // Single option
+                    const opt = document.createElement('option');
+                    opt.value = kelas;
+                    opt.textContent = kelas;
+                    kelasSelect.appendChild(opt);
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            updateKelasOptions();
+            document.getElementById('kelas_yang_dipilih').addEventListener('change', updateKelasOptions);
+        });
+        function toggleLainnya(select) {
+            var container = document.getElementById('input_lainnya_container');
+            if (select.value === 'lainnya') {
+                container.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+                document.getElementById('input_lainnya').value = '';
+            }
+        }
+        </script>
+        <script>
+
+        function updateKelasOptions() {
+            const program = document.getElementById('kelas_yang_dipilih').value;
+            const kelasSelect = document.getElementById('kelas_pilihan');
+            kelasSelect.innerHTML = '';
+            const kelasList = kelasOptions[program];
+            Object.keys(kelasList).forEach(function(kelas) {
+                const subkelas = kelasList[kelas];
+                if (subkelas.length > 0) {
+                    // Grouped options
+                    const optgroup = document.createElement('optgroup');
+                    optgroup.label = kelas;
+                    subkelas.forEach(function(sub) {
+                        const opt = document.createElement('option');
+                        opt.value = sub;
+                        opt.textContent = sub;
+                        if (window.selectedKelasPilihan && window.selectedKelasPilihan === sub) {
+                            opt.selected = true;
+                        }
+                        optgroup.appendChild(opt);
+                    });
+                    kelasSelect.appendChild(optgroup);
+                } else {
+                    // Single option
+                    const opt = document.createElement('option');
+                    opt.value = kelas;
+                    opt.textContent = kelas;
+                    if (window.selectedKelasPilihan && window.selectedKelasPilihan === kelas) {
+                        opt.selected = true;
+                    }
+                    kelasSelect.appendChild(opt);
+                }
+            });
+        }
+        // Output value kelas_pilihan dari POST sebagai JS variable
+        // Kelas dan subkelas yang tersedia per program
+        const kelasOptions = {
+            paid: {
+                'Full-Stack Web Development': ['ReactJS', 'NodeJS'],
+                'Software Quality Assurance': ['Automation Testing', 'Manual Testing'],
+                'Enterprise Software Mastery': ['Outsystem', 'Temenos 24']
+            },
+            free: {
+                'Outsystem': [],
+                'Temenos 24': []
+            },
+            softclass: {
+                'Komunikasi Efektif': ['Public Speaking', 'Negosiasi', 'Presentasi'],
+                'Kepemimpinan Digital': ['Digital Leadership', 'Team Management'],
+                'Problem Solving': ['Critical Thinking', 'Decision Making']
+            }
+        };
+        document.addEventListener('DOMContentLoaded', function() {
+            updateKelasOptions();
+            document.getElementById('kelas_yang_dipilih').addEventListener('change', updateKelasOptions);
+        });
         function toggleLainnya(select) {
             var container = document.getElementById('input_lainnya_container');
             if (select.value === 'lainnya') {
